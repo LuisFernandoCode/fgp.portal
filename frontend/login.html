@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso ao portal | FGP</title><link rel="stylesheet" href="css/style.css"><script src="js/app.js" defer></script>
+</head>
+<body class="login-page">
+  <main class="login-layout">
+    <section class="login-story">
+      <a class="brand brand-light" href="index.html"><span class="brand-mark">⌘</span><span class="brand-name">FGP</span><span class="brand-subtitle">Faculdade<br>Garotos de Programa</span></a>
+      <div><h1>Tecnologia também é sobre <span>pessoas.</span></h1><p>Aqui, você constrói seu futuro com foco, dedicação e muita programação.</p></div>
+      <p class="story-quote">Grandes projetos<br>começam aqui.</p>
+    </section>
+    <section class="login-panel">
+      <a class="brand login-brand" href="index.html"><span class="brand-mark">⌘</span><span class="brand-name">FGP</span><span class="brand-subtitle">Faculdade<br>Garotos de Programa</span></a>
+      <div class="login-box">
+        <h2>Acesse sua conta</h2><p>Use seu RGA (aluno) ou RGP (professor) para entrar no sistema.</p>
+        <form id="login-form">
+          <label class="sr-only" for="login-id">RGA ou RGP</label><div class="input-icon"><span>♙</span><input id="login-id" name="identificador" placeholder="RGA (aluno) ou RGP (professor)" autocomplete="username" required></div>
+          <label class="sr-only" for="login-password">Senha</label><div class="input-icon"><span>♙</span><input id="login-password" name="senha" type="password" placeholder="Senha" autocomplete="current-password" required><button class="password-toggle" type="button" aria-label="Mostrar senha">◉</button></div>
+          <button class="button button-primary button-full" type="submit">Entrar <span>→</span></button>
+          <div class="login-links"><button type="button" class="text-button" data-dialog="help-dialog">Preciso de ajuda</button><button type="button" class="text-button" data-dialog="reset-dialog">Esqueci minha senha</button></div>
+          <p class="login-hint">Demonstração: use <b>aluno</b> para abrir o painel do aluno ou <b>professor</b> para abrir o painel do professor. Qualquer senha preenchida será aceita neste protótipo.</p>
+          <div class="form-message" id="login-message" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+      <p class="login-tagline">FGP. Mais que uma faculdade,<br><strong>um código de possibilidades.</strong></p>
+    </section>
+  </main>
+  <dialog id="help-dialog" class="modal"><button class="modal-close" data-close-dialog aria-label="Fechar">×</button><h2>Precisa de ajuda?</h2><p>Para este protótipo, utilize o identificador <b>aluno</b> ou <b>professor</b> e preencha uma senha de demonstração.</p><p>Em um sistema real, este espaço deve estar conectado ao suporte institucional.</p></dialog>
+  <dialog id="reset-dialog" class="modal"><button class="modal-close" data-close-dialog aria-label="Fechar">×</button><h2>Recuperar senha</h2><p>A recuperação real precisa de um serviço seguro de autenticação. No protótipo, volte ao login e use as credenciais de demonstração.</p><button class="button button-primary" data-close-dialog>Entendi</button></dialog>
+</body>
+</html>

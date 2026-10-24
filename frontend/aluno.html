@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Portal do aluno | FGP</title><link rel="stylesheet" href="css/style.css"><script src="js/app.js" defer></script></head>
+<body class="portal-page">
+  <aside class="portal-sidebar">
+    <a class="brand brand-light" href="index.html"><span class="brand-mark">⌘</span><span class="brand-name">FGP</span><span class="brand-subtitle">Faculdade<br>Garotos de Programa</span></a>
+    <nav class="portal-nav" aria-label="Menu do aluno">
+      <a class="active" href="#inicio" data-section="inicio">⌂　Início</a><a href="#avaliacoes" data-section="avaliacoes">☑　Minhas avaliações</a><a href="#notas" data-section="notas">▤　Minhas notas</a><a href="#materias" data-section="materias">▣　Minhas matérias</a><a href="#horas" data-section="horas">◷　Horas complementares</a><a href="#grade" data-section="grade">⊞　Grade de matérias</a><a href="#semestre" data-section="semestre">▦　Meu semestre</a><a href="#tutor" data-section="tutor">☏　Falar com o tutor</a>
+    </nav>
+    <div class="sidebar-bottom"><span class="brand-mark">⌘</span><p>Mais que uma faculdade,<br>um futuro em código.</p><a href="login.html" class="logout-link">Sair da conta ↗</a></div>
+  </aside>
+  <main class="portal-main">
+    <header class="portal-header"><button class="menu-toggle portal-menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button><span>Portal acadêmico</span><div class="user-menu"><span class="notification">♧</span><span class="avatar">P</span><strong>Pedro H Maranhão</strong><a href="login.html" class="logout-small">Sair</a></div></header>
+    <section class="portal-welcome" id="portal-welcome"><div><p class="eyebrow">BEM-VINDO,</p><h1>Pedro H Maranhão!</h1><h2>Que bom ter você por aqui!</h2><p>Acompanhe sua jornada, acesse suas informações e mantenha-se sempre por dentro do seu curso.</p></div><div class="welcome-photo" role="img" aria-label="Aluno homem estudando programação no campus"></div></section>
+
+    <section class="portal-section" id="inicio">
+      <div class="student-shortcuts">
+        <button class="dashboard-card" data-section="avaliacoes"><span class="feature-icon">☑</span><h3>Minhas Avaliações</h3><p>Veja suas avaliações programadas e resultados.</p><i>→</i></button>
+        <button class="dashboard-card" data-section="notas"><span class="feature-icon">▤</span><h3>Minhas Notas</h3><p>Acompanhe suas notas e histórico acadêmico.</p><i>→</i></button>
+        <button class="dashboard-card" data-section="materias"><span class="feature-icon">▣</span><h3>Minhas Matérias</h3><p>Confira suas disciplinas em andamento.</p><i>→</i></button>
+        <button class="dashboard-card" data-section="horas"><span class="feature-icon">◷</span><h3>Horas Complementares</h3><p>Acompanhe suas horas e atividades.</p><i>→</i></button>
+        <button class="dashboard-card" data-section="grade"><span class="feature-icon">⊞</span><h3>Grade de Matérias</h3><p>Veja a estrutura do seu curso e disciplinas.</p><i>→</i></button>
+        <button class="dashboard-card" data-section="semestre"><span class="feature-icon">▦</span><h3>Meu Semestre</h3><p>Confira o calendário acadêmico e próximos eventos.</p><i>→</i></button>
+        <button class="dashboard-card wide-card" data-section="tutor"><span class="feature-icon">☏</span><h3>Falar com o Tutor</h3><p>Tire dúvidas e receba orientações do seu tutor.</p><i>→</i></button>
+      </div>
+      <div class="student-lower">
+        <article class="performance-card"><span class="feature-icon">▥</span><h2>Meu desempenho no curso</h2><p>Veja como você está indo e continue se dedicando. Você está indo muito bem!</p><div class="performance-content"><div class="progress-ring" role="img" aria-label="75 por cento concluído"><div><strong>75%</strong><span>CONCLUÍDO</span></div></div><div class="performance-note"><strong>★　Você está a um passo de grandes conquistas!</strong><p>Continue firme nos seus estudos, o seu esforço faz toda a diferença.</p></div></div><button class="button button-outline" data-section="notas">Ver detalhes do desempenho →</button></article>
+        <aside class="quick-info"><h3>▤　Informações rápidas</h3><div class="quick-row"><span>▦</span><div><small>Próxima avaliação</small><strong>20/10/2026</strong></div></div><div class="quick-row"><span>▣</span><div><small>Próxima aula</small><strong>Cálculo I</strong><small>Data demonstrativa</small></div></div><div class="quick-row"><span>▦</span><div><small>Meu semestre</small><strong>2026.2</strong></div></div><div class="quick-banner">♧　Juntos no seu próximo nível.</div></aside>
+      </div>
+    </section>
+
+    <section class="portal-section detail-section" id="detail-section" hidden>
+      <button class="back-button" id="back-home">← Voltar ao início</button>
+      <p class="eyebrow">ÁREA DO ALUNO</p><h1 id="detail-title">Minhas avaliações</h1><p id="detail-description">Consulte suas informações acadêmicas.</p>
+      <div id="detail-content" class="detail-content"></div>
+    </section>
+    <footer class="portal-footer"><a class="brand" href="index.html"><span class="brand-mark">⌘</span><span class="brand-name">FGP</span><span class="brand-subtitle">Faculdade Garotos<br>de Programa</span></a><span>Juntos no seu próximo nível.</span></footer>
+  </main>
+</body>
+</html>

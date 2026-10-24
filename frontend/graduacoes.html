@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conheça nossas graduações | FGP</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">⌘</span><span class="brand-name">FGP</span><span class="brand-subtitle">Faculdade<br>Garotos de Programa</span></a>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav class="main-nav"><a href="index.html">Início</a><a href="index.html#sobre">Sobre nós</a><a class="active" href="graduacoes.html">Graduações</a><a href="#fale-conosco">Contato</a></nav>
+    <a class="button button-outline header-login" href="login.html">♙ <span>Acessar</span></a>
+  </header>
+
+  <main>
+    <section class="degree-hero">
+      <div class="degree-hero-copy">
+        <p class="eyebrow">SEU FUTURO EM TECNOLOGIA COMEÇA AQUI!</p>
+        <h1>Conheça nossas <span>graduações</span></h1>
+        <p>Na FGP, você encontra cursos de graduação com foco em tecnologia, preparados para o mercado e para o seu futuro.</p>
+        <div class="mini-benefits"><span>♧ Professores experientes</span><span>▣ Projetos práticos</span><span>▤ Laboratórios modernos</span></div>
+      </div>
+      <div class="degree-hero-image" role="img" aria-label="Alunos homens colaborando em projeto de tecnologia"></div>
+    </section>
+
+    <section class="degree-content container">
+      <div class="degree-list-area">
+        <p class="eyebrow">CURSOS DE GRADUAÇÃO</p>
+        <h2>Escolha seu curso de interesse</h2>
+        <p>Clique no botão abaixo e conheça as graduações disponíveis na área de tecnologia.</p>
+        <button class="button button-primary course-toggle" id="course-toggle" aria-expanded="false" aria-controls="course-list">♧　Ver todos os cursos de graduação　→</button>
+        <div class="course-list" id="course-list" hidden>
+          <article class="course-option"><span>⌘</span><div><h3>Análise e Desenvolvimento de Sistemas</h3><p>Desenvolvimento de software, aplicações e soluções digitais.</p></div><button class="text-button choose-course" data-course="Análise e Desenvolvimento de Sistemas">Tenho interesse →</button></article>
+          <article class="course-option"><span>▦</span><div><h3>Ciência da Computação</h3><p>Algoritmos, programação, inteligência artificial e computação.</p></div><button class="text-button choose-course" data-course="Ciência da Computação">Tenho interesse →</button></article>
+          <article class="course-option"><span>☁</span><div><h3>Sistemas de Informação</h3><p>Tecnologia, dados e processos para organizações.</p></div><button class="text-button choose-course" data-course="Sistemas de Informação">Tenho interesse →</button></article>
+          <article class="course-option"><span>⌘</span><div><h3>Redes de Computadores</h3><p>Infraestrutura, conectividade e administração de redes.</p></div><button class="text-button choose-course" data-course="Redes de Computadores">Tenho interesse →</button></article>
+          <article class="course-option"><span>⬡</span><div><h3>Segurança da Informação</h3><p>Proteção de sistemas, dados e ambientes digitais.</p></div><button class="text-button choose-course" data-course="Segurança da Informação">Tenho interesse →</button></article>
+          <article class="course-option"><span>◈</span><div><h3>Jogos Digitais</h3><p>Criação de jogos, experiências interativas e protótipos.</p></div><button class="text-button choose-course" data-course="Jogos Digitais">Tenho interesse →</button></article>
+          <article class="course-option"><span>▤</span><div><h3>Engenharia de Software</h3><p>Arquitetura, qualidade e gestão do ciclo de desenvolvimento.</p></div><button class="text-button choose-course" data-course="Engenharia de Software">Tenho interesse →</button></article>
+          <article class="course-option"><span>◉</span><div><h3>Inteligência Artificial e Dados</h3><p>Dados, automação e aplicações inteligentes.</p></div><button class="text-button choose-course" data-course="Inteligência Artificial e Dados">Tenho interesse →</button></article>
+        </div>
+
+        <div class="highlight-courses">
+          <p class="eyebrow">CURSOS EM DESTAQUE</p>
+          <div class="small-course-grid">
+            <button class="small-course choose-course" data-course="Análise e Desenvolvimento de Sistemas"><span>⌘</span><strong>Análise e Desenvolvimento de Sistemas</strong><i>→</i></button>
+            <button class="small-course choose-course" data-course="Ciência da Computação"><span>▦</span><strong>Ciência da Computação</strong><i>→</i></button>
+            <button class="small-course choose-course" data-course="Sistemas de Informação"><span>☁</span><strong>Sistemas de Informação</strong><i>→</i></button>
+            <button class="small-course choose-course" data-course="Redes de Computadores"><span>⌘</span><strong>Redes de Computadores</strong><i>→</i></button>
+            <button class="small-course choose-course" data-course="Segurança da Informação"><span>⬡</span><strong>Segurança da Informação</strong><i>→</i></button>
+            <button class="small-course choose-course" data-course="Jogos Digitais"><span>◈</span><strong>Jogos Digitais</strong><i>→</i></button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="contact-card" id="fale-conosco">
+        <p class="eyebrow">♧　FALE CONOSCO</p>
+        <h2>Tire suas dúvidas e dê o primeiro passo para o seu futuro!</h2>
+        <p>Preencha seus dados e nossa equipe entrará em contato com você.</p>
+        <form id="lead-form">
+          <label for="lead-name">Nome completo</label><input id="lead-name" name="nome" autocomplete="name" placeholder="Digite seu nome" required>
+          <label for="lead-phone">Número de celular</label><input id="lead-phone" name="celular" type="tel" inputmode="tel" autocomplete="tel" placeholder="(XX) XXXXX-XXXX" required>
+          <label for="lead-email">E-mail</label><input id="lead-email" name="email" type="email" autocomplete="email" placeholder="Digite seu e-mail" required>
+          <label for="lead-course">Curso de interesse</label><select id="lead-course" name="curso"><option value="">Selecione um curso</option><option>Análise e Desenvolvimento de Sistemas</option><option>Ciência da Computação</option><option>Sistemas de Informação</option><option>Redes de Computadores</option><option>Segurança da Informação</option><option>Jogos Digitais</option><option>Engenharia de Software</option><option>Inteligência Artificial e Dados</option><option>Ainda estou decidindo</option></select>
+          <fieldset><legend>Turno de interesse</legend><div class="turn-options">
+            <label><input type="radio" name="turno" value="EAD" required><span>▣　EAD</span></label>
+            <label><input type="radio" name="turno" value="Manhã"><span>☼　Manhã</span></label>
+            <label><input type="radio" name="turno" value="Tarde"><span>☼　Tarde</span></label>
+            <label><input type="radio" name="turno" value="Noite"><span>☾　Noite</span></label>
+          </div></fieldset>
+          <button class="button button-primary button-full" type="submit">Enviar interesse　➤</button>
+          <p class="form-note">Ao enviar, você concorda em ser contatado pela equipe da FGP sobre os cursos. Demonstração local: os dados não são enviados para um servidor.</p>
+          <div class="form-message" id="lead-message" role="status" aria-live="polite"></div>
+        </form>
+      </aside>
+    </section>
+
+    <section class="campus-banner">
+      <div class="campus-photo" role="img" aria-label="Prédio moderno de campus universitário"></div>
+      <div class="campus-copy"><p class="eyebrow">VENHA CONHECER</p><h2>VENHA CONHECER NOSSO CAMPUS!</h2><p>Estrutura moderna, laboratórios completos, áreas de convivência e um ambiente feito para quem vive tecnologia.</p><a class="button button-light" href="#fale-conosco">Agende uma visita →</a></div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <a class="brand" href="index.html"><span class="brand-mark">⌘</span><span class="brand-name">FGP</span><span class="brand-subtitle">Faculdade<br>Garotos de Programa</span></a>
+    <div class="footer-links"><strong>Links rápidos</strong><a href="index.html">Início</a><a href="login.html">Portal</a></div>
+    <div class="footer-social"><strong>Siga a FGP</strong><span>◎　▣　▶　♪</span><small>Juntos no seu próximo nível.</small></div>
+  </footer>
+</body>
+</html>
