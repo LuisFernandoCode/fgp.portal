@@ -4,7 +4,7 @@ app = Flask(__name__, static_folder="../frontend", static_url_path="") #Cria o s
 
 @app.route("/") # é o 'decorador': diz que a função abaixo responde ao endereço "/" (página inicial)
 def inicio(): #função que roda quando alguém acessa "/"
-    return app.send_static_file("index.html") # O texto que volta para o navegador
+    return app.send_static_file("index.html") # O arquivo que volta para o navegador
 
 
 @app.route("/sobre")
@@ -23,4 +23,4 @@ def aluno():
             "matricula": True,
             "tutor": None,
             "disciplinas": ["Matemática", "Português"],
-            "Curso": {"nome": "Educação Física", "turno": "noite"}}
+            "curso": {"nome": "Educação Física", "turno": "noite"}}

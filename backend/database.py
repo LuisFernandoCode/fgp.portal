@@ -3,7 +3,7 @@ import sqlite3 #Biblioteca do SQLite, que já vem com o Python
 from pathlib import Path # ferramenta para lidar com caminhos de arquivos
 
 PASTA = Path(__file__).parent # a pasta de onde ESTE arquivo está (backend), rode de onde rodar
-BANCO = PASTA / "fgb.db" # Caminho do arquivo do banco (o "/" junta pedaços de caminho)
+BANCO = PASTA / "fgp.db" # Caminho do arquivo do banco (o "/" junta pedaços de caminho)
 SCHEMA = PASTA / "schema.sql" # Caminho do meu desenho das tabelas
 
 
