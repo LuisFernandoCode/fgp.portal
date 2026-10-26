@@ -135,17 +135,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Formulário demonstrativo. Os dados não saem do navegador.
+  // Cadastro de interessados: envia os dados para o backend validar e salvar no banco.
   const leadForm = document.querySelector('#lead-form');
   if (leadForm) {
-    leadForm.addEventListener('submit', (event) => {
+    const campos = { // qual campo do formulário corresponde a cada erro que o backend pode devolver
+      nome: '#lead-name', celular: '#lead-phone', email: '#lead-email',
+      curso: '#lead-course', turno: 'input[name="turno"]', consentimento: '#lead-consent',
+    };
+    leadForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-      if (!leadForm.reportValidity()) return;
-      const name = document.querySelector('#lead-name').value.trim().split(/\s+/)[0];
-      const course = document.querySelector('#lead-course').value || 'um curso de tecnologia';
-      const turno = leadForm.querySelector('input[name="turno"]:checked')?.value || 'turno não selecionado';
-      document.querySelector('#lead-message').textContent = `Obrigado, ${name}! Seu interesse em ${course} (${turno}) foi registrado apenas nesta demonstração. Para receber contatos de verdade, conecte este formulário a um back-end.`;
-      leadForm.reset();
+      if (!leadForm.reportValidity()) return; // o navegador confere os campos obrigatórios primeiro
+      const message = document.querySelector('#lead-message');
+      leadForm.querySelectorAll('[aria-invalid]').forEach((campo) => campo.removeAttribute('aria-invalid'));
+      const dados = {
+        nome: document.querySelector('#lead-name').value,
+        celular: document.querySelector('#lead-phone').value,
+        email: document.querySelector('#lead-email').value,
+        curso: document.querySelector('#lead-course').value,
+        turno: leadForm.querySelector('input[name="turno"]:checked')?.value || '',
+        consentimento: document.querySelector('#lead-consent').checked, // true ou false
+      };
+      message.textContent = 'Enviando…';
+      try {
+        const resposta = await fetch('/api/interessados', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dados),
+        });
+        const corpo = await resposta.json();
+        if (!resposta.ok) {
+          Object.keys(corpo.erros).forEach((chave) => {
+            leadForm.querySelector(campos[chave])?.setAttribute('aria-invalid', 'true'); // leitores de tela anunciam "inválido"
+          });
+          message.textContent = Object.values(corpo.erros).join(' '); // todas as mensagens, em texto
+          leadForm.querySelector('[aria-invalid="true"]')?.focus(); // leva o foco ao primeiro campo com erro
+          return;
+        }
+        message.textContent = corpo.mensagem; // "Obrigado, Maria! ..."
+        leadForm.reset();
+      } catch (erro) {
+        message.textContent = 'Não foi possível enviar agora. Confira se o servidor está ligado e tente de novo.';
+      }
     });
   }
 

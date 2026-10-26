@@ -371,4 +371,10 @@ p { margin-top: 0; }
   .detail-content { grid-template-columns: 1fr; }
   .detail-table { font-size: .8rem; }
   .detail-table th, .detail-table td { padding: 9px 7px; }
+
+  /* Cadastro de interessados e mensagens dos formulários */
+.form-message { color: #093350; } /* texto escuro: contraste de 13:1 (o azul claro de antes tinha só 2,3:1) */
+.contact-card .consent-option { display: flex; gap: 8px; align-items: flex-start; font-weight: 500; margin-top: 10px; }
+.contact-card .consent-option input[type=checkbox] { width: 18px; height: 18px; min-height: 18px; margin: 2px 0 0; padding: 0; flex: none; }
+.contact-card [aria-invalid="true"], .contact-card [aria-invalid="true"]:focus { border-color: #b3261e; box-shadow: 0 0 0 3px rgba(179,38,30,.15); }
 }
