@@ -14,26 +14,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Login de demonstração: direciona conforme o tipo de usuário informado.
+  // Login de verdade: envia o RGA/RGP e a senha para o backend conferir no banco.
   const loginForm = document.querySelector('#login-form');
   if (loginForm) {
-    loginForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const id = document.querySelector('#login-id').value.trim().toLowerCase();
-      const password = document.querySelector('#login-password').value;
+    loginForm.addEventListener('submit', async (event) => {
+      event.preventDefault(); // impede o navegador de recarregar a página
+      const identificador = document.querySelector('#login-id').value.trim();
+      const senha = document.querySelector('#login-password').value;
       const message = document.querySelector('#login-message');
-      if (!id || !password) {
+      if (!identificador || !senha) {
         message.textContent = 'Preencha o identificador e a senha para continuar.';
         return;
       }
-      // Em produção, nunca autentique desta forma: use um back-end seguro.
-      if (id.includes('prof') || id.startsWith('rgp')) {
-        message.textContent = 'Acesso de demonstração identificado. Abrindo portal do professor…';
-        window.setTimeout(() => window.location.href = 'professor.html', 450);
-      } else {
-        message.textContent = 'Acesso de demonstração identificado. Abrindo portal do aluno…';
-        window.setTimeout(() => window.location.href = 'aluno.html', 450);
+      message.textContent = 'Verificando seus dados…';
+      try {
+        const resposta = await fetch('/api/login', { // faz o pedido POST para a rota do app.py
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' }, // avisa que o corpo é JSON
+          body: JSON.stringify({ identificador, senha }), // transforma o objeto em texto JSON
+        });
+        const dados = await resposta.json(); // lê a resposta do backend
+        if (!resposta.ok) { // ok = status 200 a 299
+          message.textContent = dados.erro; // ex.: "RGA/RGP ou senha incorretos."
+          return;
+        }
+        message.textContent = `Bem-vindo, ${dados.nome}! Abrindo seu portal…`;
+        window.location.href = dados.destino; // vai para /aluno.html ou /professor.html
+      } catch (erro) {
+        message.textContent = 'Não foi possível falar com o servidor. Ele está ligado?';
       }
+    });
+  }
+
+  // Painéis: pergunta ao backend quem está logado, mostra o nome e prepara o botão de sair.
+  if (document.body.classList.contains('portal-page')) {
+    const mostrarUsuario = async () => {
+      const resposta = await fetch('/api/me');
+      if (!resposta.ok) {
+        window.location.href = '/login.html'; // sem login: volta para a tela de acesso
+        return;
+      }
+      const usuario = await resposta.json();
+      document.querySelectorAll('.user-menu strong').forEach((campo) => { campo.textContent = usuario.nome; });
+      const titulo = document.querySelector('.portal-welcome h1');
+      if (titulo) titulo.textContent = `${usuario.nome}!`;
+      const avatar = document.querySelector('.avatar');
+      if (avatar) avatar.textContent = usuario.nome.charAt(0); // a inicial do nome no círculo
+    };
+    mostrarUsuario();
+
+    document.querySelectorAll('.logout-link, .logout-small').forEach((link) => {
+      link.addEventListener('click', async (event) => {
+        event.preventDefault();
+        await fetch('/api/logout', { method: 'POST' }); // o backend apaga a sessão
+        window.location.href = '/login.html';
+      });
     });
   }
 
